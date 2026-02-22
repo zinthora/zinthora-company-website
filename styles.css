@@ -101,6 +101,22 @@ section {
     padding: 5rem 0;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand .logo {
+    height: 70px;
+    display: block;
+}
+
+.footer-brand .footer-logo {
+    height: 70px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
 /* ===================================
    Navigation Bar
    =================================== */
@@ -1016,7 +1032,7 @@ section {
     }
     
     .navbar .container {
-        padding: 0.875rem 1rem;
+        /*padding: 0.875rem 1rem;*/
     }
     
     .hero-title {

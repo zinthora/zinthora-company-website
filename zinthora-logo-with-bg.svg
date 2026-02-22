@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 170" width="460" height="170">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1b2a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2e45;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7ecac3;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#a8e6df;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5ab8b0;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b8d4f0;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#7eb8e8;stop-opacity:0.9" />
+    </linearGradient>
+    <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4a8e0;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#c47ed4;stop-opacity:0.8" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a8e6df" />
+      <stop offset="50%" style="stop-color:#e8f4f2" />
+      <stop offset="100%" style="stop-color:#7ecac3" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="iconClip">
+      <circle cx="72" cy="85" r="60"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="460" height="170" fill="url(#bgGrad)" rx="14"/>
+
+  <!-- Subtle background texture dots -->
+  <circle cx="390" cy="20" r="80" fill="#7ecac3" opacity="0.04"/>
+  <circle cx="30" cy="150" r="60" fill="#b8d4f0" opacity="0.05"/>
+
+  <!-- Icon: circular emblem with flowing waves -->
+  <circle cx="72" cy="85" r="58" fill="#0a1520" opacity="0.8"/>
+  <circle cx="72" cy="85" r="58" fill="none" stroke="#7ecac3" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Play/stream ripple rings -->
+  <circle cx="72" cy="85" r="44" fill="none" stroke="#7ecac3" stroke-width="0.8" opacity="0.25"/>
+  <circle cx="72" cy="85" r="30" fill="none" stroke="#7ecac3" stroke-width="0.8" opacity="0.2"/>
+
+  <!-- Wave 1 - teal (main) -->
+  <path d="M 17 73 Q 34 61 51 73 Q 68 85 85 73 Q 102 61 119 73 Q 127 79 127 85"
+        fill="none" stroke="url(#waveGrad1)" stroke-width="2.8" stroke-linecap="round"
+        filter="url(#glow)" clip-path="url(#iconClip)"/>
+
+  <!-- Wave 2 - blue -->
+  <path d="M 17 85 Q 34 73 51 85 Q 68 97 85 85 Q 102 73 119 85 Q 127 91 127 97"
+        fill="none" stroke="url(#waveGrad2)" stroke-width="2.2" stroke-linecap="round"
+        opacity="0.8" clip-path="url(#iconClip)"/>
+
+  <!-- Wave 3 - lavender -->
+  <path d="M 17 97 Q 34 85 51 97 Q 68 109 85 97 Q 102 85 119 97"
+        fill="none" stroke="url(#waveGrad3)" stroke-width="1.8" stroke-linecap="round"
+        opacity="0.7" clip-path="url(#iconClip)"/>
+
+  <!-- Play triangle — minimal, centered, glowing -->
+  <polygon points="63,73 63,97 87,85" fill="#a8e6df" opacity="0.92" filter="url(#softGlow)"/>
+
+  <!-- Company name -->
+  <text x="146" y="93"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="46"
+        font-weight="400"
+        letter-spacing="3"
+        fill="url(#textGrad)"
+        filter="url(#softGlow)">Zinthora</text>
+
+  <!-- Tagline -->
+  <text x="148" y="113"
+        font-family="'Courier New', monospace"
+        font-size="11"
+        letter-spacing="5"
+        fill="#7ecac3"
+        opacity="0.65">STREAM IN HARMONY</text>
+
+  <!-- Decorative line under tagline -->
+  <line x1="148" y1="121" x2="354" y2="121" stroke="#7ecac3" stroke-width="0.6" opacity="0.3"/>
+</svg>

@@ -411,7 +411,7 @@ section {
 }
 
 .product-card {
-    width: 50%;
+    width: 90%;
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -479,7 +479,7 @@ section {
 
 .product-screenshots {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -965,6 +965,11 @@ section {
     /* Products Grid */
     .products-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .product-screenshots {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
     }
     
     /* Why Us Grid */

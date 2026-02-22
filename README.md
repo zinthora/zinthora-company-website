@@ -1,1 +1,1 @@
-# zinthora-company-website
+# Zinthora LLC

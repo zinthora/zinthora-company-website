@@ -153,14 +153,51 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Validate form
             if (validateForm(formData)) {
-                // Show success message (since this is a static site)
-                showFormMessage('success', 'Thank you for your message! We will get back to you soon.');
+                debugger;
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.textContent;
                 
-                // Reset form
-                contactForm.reset();
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
                 
-                // In a real application, you would send the data to a server here
-                // Example: sendFormData(formData);
+                // Send form data to Formspree
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        showFormMessage('success', 'Thank you for your message! We will get back to you soon.');
+                        
+                        // Reset form
+                        contactForm.reset();
+                    } else {
+                        // Handle server-side errors
+                        return response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                const errorMsg = data["errors"].map(error => error["message"]).join(", ");
+                                showFormMessage('error', `Oops! There was a problem: ${errorMsg}`);
+                            } else {
+                                showFormMessage('error', 'Oops! There was a problem submitting your form. Please try again later.');
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    // Handle network errors
+                    showFormMessage('error', 'Oops! There was a problem connecting to the server. Please try again later.');
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                });
             }
         });
     }
